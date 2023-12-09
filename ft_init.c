@@ -63,9 +63,15 @@ int	args_init(char **av, t_tab *info)
 	else
 		info->nb_eat = -1;
 	if (info->nb_eat <= 0 && av[5])
-		return (1);
-	if (info->nb_philo > 250 || info->nb_philo < 2 || info->ttdie < 0
+		return (ft_log(1));
+	if (info->nb_philo > 250 || info->ttdie < 0
 		|| info->tteat < 0 || info->ttsleep < 0)
+		return (ft_log(1));
+	if (info->nb_philo == 1)
+	{
+		printf("0 0 has taken a fork\n");
+		printf("%li 0 died\n", info->ttdie);
 		return (1);
+	}
 	return (0);
 }
